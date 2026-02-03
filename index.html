@@ -2,121 +2,172 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhyanamurthy M - Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body bgcolor="#0f172a" text="#e5e7eb" link="#38bdf8" vlink="#38bdf8">
+<body>
 
-    <header><center>
-        <h1>Dhyanamurthy M</h1>
-        <p>AI & ML Engineer | GenAI Specialist</p>
-        <p>Bengaluru, Karnataka</p>
-    </header></center>
-
-    <nav>
-        <center>
-	<a href="#about">About</a> |
-	<a href="#skills">Skills</a> |
-	<a href="#projects">Projects</a> |
-	<a href="#certifications">Certifications</a> |
-	<a href="#contact">Contact</a>
-	</center>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#certs" class="nav-link">Certifications</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
     </nav>
 
-    <main>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="gradient-text">Dhyanamurthy M</h1>
+            <p class="subtitle">AI & ML Engineer | GenAI Specialist</p>
+            <p class="location">Bengaluru, Karnataka</p>
+        </div>
+    </header>
+
+    <main class="container">
 
         <section id="about">
-            <h2><font color="#38bdf8">Professional Summary</font></h2>
-            <p>
-                Software Engineer & AI Specialist focused on GenAI architecture, RAG, and resilient backend systems.
-                Experienced in Python, FastAPI, and LLM orchestration.
-            </p>
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="glass-card">
+                <p>
+                    Software Engineer & AI Specialist focused on GenAI architecture, RAG, and resilient backend systems.
+                    Experienced in Python, FastAPI, and LLM orchestration.
+                </p>
+            </div>
         </section>
 
         <section id="skills">
-            <h2><font color="#38bdf8">Technical Skills</font></h2>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="grid-layout skills-grid">
+                
+                <div class="glass-card skill-card">
+                    <h3>Languages</h3>
+                    <ul class="tag-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>C</li>
+                    </ul>
+                </div>
 
-            <h3>Programming Languages</h3>
-            <ul>
-                <li>Python</li>
-                <li>C++</li>
-                <li>C</li>
-            </ul>
+                <div class="glass-card skill-card">
+                    <h3>Frameworks</h3>
+                    <ul class="tag-list">
+                        <li>FastAPI</li>
+                        <li>React</li>
+                        <li>PyTorch</li>
+                        <li>TensorFlow</li>
+                    </ul>
+                </div>
 
-            <h3>Frameworks</h3>
-            <ul>
-                <li>FastAPI</li>
-                <li>React</li>
-                <li>PyTorch</li>
-                <li>TensorFlow</li>
-            </ul>
+                <div class="glass-card skill-card">
+                    <h3>Libraries</h3>
+                    <ul class="tag-list">
+                        <li>Scikit-Learn</li>
+                        <li>SpaCy</li>
+                        <li>Keras</li>
+                    </ul>
+                </div>
 
-            <h3>Libraries</h3>
-            <ul>
-                <li>Scikit-Learn</li>
-                <li>SpaCy</li>
-                <li>Keras</li>
-            </ul>
-
-            <h3>Databases</h3>
-            <ul>
-                <li>MySQL</li>
-            </ul>
+                <div class="glass-card skill-card">
+                    <h3>Databases</h3>
+                    <ul class="tag-list">
+                        <li>MySQL</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
-            <h2><font color="#38bdf8">Projects</font></h2>
+            <h2 class="section-title">Projects</h2>
+            <div class="grid-layout projects-grid">
 
-            <article>
-                <h3>i. CodeGraph AI Agent  <a href="https://github.com/Dhy4n-117/CodeGraph">Link</a></h3>
-                <p>Python, RAG, AST</p>
-                
-            </article>
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>CodeGraph AI Agent</h3>
+                        <a href="https://github.com/Dhy4n-117/CodeGraph" class="icon-link" target="_blank" aria-label="View CodeGraph">
+                            <span>&#8599;</span> </a>
+                    </div>
+                    <p>Python, RAG, AST</p>
+                    <div class="tech-stack">Code Analysis & Automation</div>
+                </article>
 
-            <article>
-                <h3>ii. ViperScan Network Scanner  <a href="https://github.com/Dhy4n-117/ViperScan">Link</a></h3>
-                <p>Python, Sockets, Threading</p>
-                
-            </article>
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>ViperScan Network Scanner</h3>
+                        <a href="https://github.com/Dhy4n-117/ViperScan" class="icon-link" target="_blank" aria-label="View ViperScan">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>Python, Sockets, Threading</p>
+                    <div class="tech-stack">Cybersecurity</div>
+                </article>
 
-            <article>
-                <h3>iii. AI Powered SOC Analyst  <a href="https://github.com/Dhy4n-117/AI_SOC_Analyst">Link</a></h3>
-                <p>GenAI, RAG, Threat Intelligence</p>
-                
-            </article>
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>AI Powered SOC Analyst</h3>
+                        <a href="https://github.com/Dhy4n-117/AI_SOC_Analyst" class="icon-link" target="_blank" aria-label="View AI SOC">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>GenAI, RAG, Threat Intelligence</p>
+                    <div class="tech-stack">Security Operations</div>
+                </article>
 
-            <article>
-                <h3>iv. Advanced Sentiment Analysis  <a href="https://github.com/Dhy4n-117/Sentiment-Analysis">Link</a></h3>
-                <p>OpenAI-Whisper, RoBERTa, VADER</p>
-                
-            </article>  
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>Advanced Sentiment Analysis</h3>
+                        <a href="https://github.com/Dhy4n-117/Sentiment-Analysis" class="icon-link" target="_blank" aria-label="View Sentiment Analysis">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>OpenAI-Whisper, RoBERTa, VADER</p>
+                    <div class="tech-stack">NLP & Audio Processing</div>
+                </article>  
 
-            <article>
-                <h3>v. Deep Audio Classifier  <a href="https://github.com/Dhy4n-117/Deep-Audio-Classifier">Link</a></h3>
-                <p>TensorFlow, Librosa, CNN</p>
-            </article>	
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>Deep Audio Classifier</h3>
+                        <a href="https://github.com/Dhy4n-117/Deep-Audio-Classifier" class="icon-link" target="_blank" aria-label="View Audio Classifier">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>TensorFlow, Librosa, CNN</p>
+                    <div class="tech-stack">Deep Learning</div>
+                </article>	
 
+            </div>
         </section>
 
         <section id="certs">
-	    <h2><font color="#38bdf8">Education & Certifications</font></h2>			
-            <ul>
-                <li>Bachelor of Engineering - CSE (AIML)</li>
-                <li>Foundations of Cybersecurity - Coursera</li>
-                <li>AWS Solutions Architecture - Forage</li>
-                <li>Software Engineering - JPMorgan Chase (Forage)</li>
-            </ul>
+            <h2 class="section-title">Education & Certifications</h2>			
+            <div class="glass-card">
+                <ul class="cert-list">
+                    <li><strong>Bachelor of Engineering</strong> - CSE (AIML)</li>
+                    <li><strong>Foundations of Cybersecurity</strong> - Coursera</li>
+                    <li><strong>AWS Solutions Architecture</strong> - Forage</li>
+                    <li><strong>Software Engineering</strong> - JPMorgan Chase (Forage)</li>
+                </ul>
+            </div>
         </section>
 
     </main>
 
     <footer id="contact">
-        <h2><font color="#38bdf8">Contact</font></h2>
-        <p>Email: dhyanmurthy3@gmail.com</p>
-        <ul>
-            <li><a href="https://www.linkedin.com/in/dhyan-m/">LinkedIn</a></li>
-            <li><a href="https://github.com/Dhy4n-117">GitHub</a></li>
-            <li><a href="https://leetcode.com/u/Dhyan117/">LeetCode</a></li>
-        </ul>
+        <div class="container footer-content">
+            <h2 class="section-title" style="border:none; margin-bottom: 0.5rem;">Contact</h2>
+            <p>Email: <a href="mailto:dhyanmurthy3@gmail.com" style="color:var(--accent)">dhyanmurthy3@gmail.com</a></p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dhyan-m/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Dhy4n-117" target="_blank">GitHub</a>
+                <a href="https://leetcode.com/u/Dhyan117/" target="_blank">LeetCode</a>
+            </div>
+        </div>
     </footer>
 
 </body>
