@@ -1,16 +1,28 @@
 /* --- 1. Variables & Reset --- */
 :root {
+    /* Default Dark Mode Colors */
     --bg-color: #0f172a;       /* Slate 900 */
-    --card-bg: rgba(30, 41, 59, 0.6); 
-    --text-primary: #f1f5f9;   
-    --text-secondary: #94a3b8; 
-    --accent: #38bdf8;         
+    --card-bg: rgba(30, 41, 59, 0.6); /* Slate 800 (Transparent) */
+    --text-primary: #f1f5f9;   /* Slate 100 */
+    --text-secondary: #94a3b8; /* Slate 400 */
+    --accent: #38bdf8;         /* Sky 400 */
     --accent-glow: rgba(56, 189, 248, 0.25);
     --border-color: rgba(255, 255, 255, 0.08);
     --glass-blur: 16px;        
     --transition-speed: 0.3s;
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-    --nav-height: 80px; /* Defined height to calculate spacing */
+    --nav-height: 80px;
+}
+
+/* Light Mode Override Variables */
+.light-mode {
+    --bg-color: #f8fafc;       /* Light Slate */
+    --card-bg: rgba(255, 255, 255, 0.7); 
+    --text-primary: #1e293b;   /* Dark Slate */
+    --text-secondary: #475569; /* Medium Slate */
+    --accent: #0284c7;         /* Darker Blue */
+    --accent-glow: rgba(2, 132, 199, 0.15);
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
 html {
@@ -31,7 +43,8 @@ body {
     background-image: 
         radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.05) 0%, transparent 25%);
-    background-attachment: fixed; 
+    background-attachment: fixed;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth Theme Switch */
     overflow-x: hidden;
 }
 
@@ -40,8 +53,7 @@ a { text-decoration: none; color: inherit; transition: var(--transition-speed); 
 ul { list-style: none; }
 h1, h2, h3 { font-weight: 700; line-height: 1.2; }
 
-/* --- 3. Animations (CSS ONLY) --- */
-
+/* --- 3. Animations (CSS Only Scroll Reveal) --- */
 @keyframes scroll-reveal {
     from {
         opacity: 0;
@@ -55,15 +67,11 @@ h1, h2, h3 { font-weight: 700; line-height: 1.2; }
     }
 }
 
-/* --- SECTIONS SPACING FIX --- */
+/* Apply scroll animation to sections (BUT NOT HERO) */
 section {
-    /* 1. HUGE GAP: This pushes the next section far down */
-    margin-bottom: 10rem; 
+    margin-bottom: 10rem; /* Space between sections */
+    scroll-margin-top: 120px; /* Space for Sticky Nav */
     
-    /* 2. NAV FIX: This ensures the title isn't hidden behind the nav when clicked */
-    scroll-margin-top: 120px; 
-    
-    /* 3. ANIMATION: Keep the scroll reveal */
     animation: scroll-reveal linear both;
     animation-timeline: view();
     animation-range: entry 10% cover 30%;
@@ -74,12 +82,14 @@ section {
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: var(--nav-height); /* Set fixed height */
-    background: rgba(15, 23, 42, 0.8); /* Slightly darker for better readability */
+    height: var(--nav-height);
+    background: var(--bg-color);
+    opacity: 0.95;
     backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--border-color);
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
+    transition: background-color 0.5s ease;
 }
 
 .nav-container {
@@ -87,10 +97,14 @@ section {
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
 }
 
 .nav-link {
@@ -100,60 +114,55 @@ section {
     position: relative;
     padding: 5px 0;
 }
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width var(--transition-speed) ease;
-}
-
 .nav-link:hover { color: var(--accent); }
+.nav-link::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+    background: var(--accent); transition: width 0.3s ease;
+}
 .nav-link:hover::after { width: 100%; }
+
+/* Theme Toggle Button */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+}
+.theme-btn:hover {
+    background: var(--card-bg);
+    transform: rotate(15deg) scale(1.1);
+}
 
 /* --- 5. Hero Section --- */
 .hero-section {
-    /* Make hero taller so "About" doesn't show up immediately */
-    min-height: 90vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    min-height: 90vh;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    /* No animation here so name is always visible */
 }
 
 .gradient-text {
     font-size: 4.5rem;
-    background: linear-gradient(to right, #fff, var(--accent));
+    background: linear-gradient(to right, var(--text-primary), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
     letter-spacing: -2px;
 }
+.subtitle { font-size: 1.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+.location { color: var(--text-secondary); }
 
-.subtitle {
-    font-size: 1.5rem;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-}
-
-/* --- 6. Glass Cards & Layout --- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+/* --- 6. Layout & Cards --- */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
 .section-title {
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 3rem; /* More space between title and cards */
-    display: inline-block;
-    border-bottom: 2px solid rgba(56, 189, 248, 0.3);
-    padding-bottom: 10px;
+    font-size: 2.5rem; color: var(--accent); margin-bottom: 3rem;
+    display: inline-block; border-bottom: 2px solid var(--accent); padding-bottom: 10px;
 }
 
 .glass-card {
@@ -161,150 +170,88 @@ section {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 2.5rem;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    
-    /* Card Animation */
-    animation: scroll-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 25%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
-
 .glass-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(56, 189, 248, 0.5);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6),
-                0 0 20px var(--accent-glow);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
 }
 
 /* --- 7. Grid Systems --- */
-.grid-layout {
-    display: grid;
-    gap: 2.5rem; /* Increased gap between grid items */
-}
+.grid-layout { display: grid; }
 
+/* Skills Grid */
 .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
 }
 
-.tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-}
-
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
 .tag-list li {
     font-size: 0.85rem;
     background: rgba(56, 189, 248, 0.1);
     color: var(--accent);
     padding: 8px 16px;
     border-radius: 99px;
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    transition: background 0.2s;
+    border: 1px solid var(--border-color);
 }
 
-.tag-list li:hover {
-    background: var(--accent);
-    color: var(--bg-color);
-    cursor: default;
-}
-
+/* Projects Grid - FIXED for spacing and overlap */
 .projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    row-gap: 4rem; /* Adds vertical space */
+    padding-bottom: 2rem;
 }
 
 .project-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 300px; /* Allows card to expand */
+    height: auto;
+    overflow: hidden; 
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 
 .icon-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     font-size: 1.2rem;
 }
-
 .icon-link:hover {
-    background: var(--accent);
-    color: var(--bg-color);
+    background: var(--accent); color: var(--bg-color);
     transform: rotate(45deg);
 }
 
 .tech-stack {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    font-family: monospace;
-    color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
+    margin-top: 2rem; font-size: 0.9rem; font-family: monospace;
+    color: var(--text-secondary); border-top: 1px solid var(--border-color);
     padding-top: 1rem;
 }
 
-/* Cert List Styling */
-.cert-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.cert-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
-}
-.cert-list li::before {
-    content: '▹';
-    color: var(--accent);
-}
+/* Certs List */
+.cert-list { display: flex; flex-direction: column; gap: 1rem; }
+.cert-list li { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+.cert-list li::before { content: '▹'; color: var(--accent); }
 
 /* --- 8. Footer --- */
 footer {
-    padding: 4rem 0;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    background: linear-gradient(to top, rgba(15,23,42,1), rgba(15,23,42,0));
-    margin-bottom: 0; /* No margin below footer */
+    padding: 4rem 0; text-align: center; border-top: 1px solid var(--border-color);
+    background: transparent; margin-bottom: 0;
 }
-
-.social-links {
-    margin: 2rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-    text-shadow: 0 0 10px var(--accent-glow);
-}
+.social-links { margin: 2rem 0; display: flex; justify-content: center; gap: 2rem; }
+.social-links a:hover { color: var(--accent); }
 
 /* --- 9. Mobile Responsiveness --- */
 @media (max-width: 768px) {
     .gradient-text { font-size: 3rem; }
-    .nav-container { gap: 1rem; }
+    .nav-container { flex-direction: column; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; }
+    .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .glass-nav { height: auto; } /* Let nav grow on mobile */
     
-    section {
-        margin-bottom: 6rem; /* Slightly less gap on mobile, but still distinct */
-        scroll-margin-top: 100px;
-    }
-
-    @keyframes scroll-reveal {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    section { margin-bottom: 6rem; scroll-margin-top: 180px; }
 }
