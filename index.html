@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhyanamurthy M - Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certs" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                <span class="icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="gradient-text">Dhyanamurthy M</h1>
+            <p class="subtitle">I am a <span id="typing-text"></span><span class="cursor"></span></p>
+            <p class="location">Bengaluru, Karnataka</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="about">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="glass-card">
+                <p>
+                    Software Engineer & AI Specialist focused on GenAI architecture, RAG, and resilient backend systems.
+                    Experienced in Python, FastAPI, and LLM orchestration.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="grid-layout skills-grid">
+                
+                <div class="glass-card skill-card">
+                    <h3>Languages</h3>
+                    <ul class="tag-list">
+                        <li><i class="devicon-python-plain colored"></i> Python</li>
+                        <li><i class="devicon-cplusplus-plain colored"></i> C++</li>
+                        <li><i class="devicon-c-plain colored"></i> C</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <h3>Frameworks</h3>
+                    <ul class="tag-list">
+                        <li><i class="devicon-fastapi-plain colored"></i> FastAPI</li>
+                        <li><i class="devicon-react-original colored"></i> React</li>
+                        <li><i class="devicon-pytorch-original colored"></i> PyTorch</li>
+                        <li><i class="devicon-tensorflow-original colored"></i> TensorFlow</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <h3>Libraries</h3>
+                    <ul class="tag-list">
+                        <li><i class="devicon-scikitlearn-plain colored"></i> Scikit-Learn</li>
+                        <li><i class="devicon-keras-plain colored"></i> Keras</li>
+                        <li><span>🧠</span> SpaCy</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <h3>Databases</h3>
+                    <ul class="tag-list">
+                        <li><i class="devicon-mysql-plain colored"></i> MySQL</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid-layout projects-grid">
+
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>CodeGraph AI Agent</h3>
+                        <a href="https://github.com/Dhy4n-117/CodeGraph" class="icon-link" target="_blank" aria-label="View CodeGraph">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>Python, RAG, AST</p>
+                    <div class="tech-stack">Code Analysis & Automation</div>
+                </article>
+
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>ViperScan Network Scanner</h3>
+                        <a href="https://github.com/Dhy4n-117/ViperScan" class="icon-link" target="_blank" aria-label="View ViperScan">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>Python, Sockets, Threading</p>
+                    <div class="tech-stack">Cybersecurity</div>
+                </article>
+
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>AI Powered SOC Analyst</h3>
+                        <a href="https://github.com/Dhy4n-117/AI_SOC_Analyst" class="icon-link" target="_blank" aria-label="View AI SOC">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>GenAI, RAG, Threat Intelligence</p>
+                    <div class="tech-stack">Security Operations</div>
+                </article>
+
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>Advanced Sentiment Analysis</h3>
+                        <a href="https://github.com/Dhy4n-117/Sentiment-Analysis" class="icon-link" target="_blank" aria-label="View Sentiment Analysis">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>OpenAI-Whisper, RoBERTa, VADER</p>
+                    <div class="tech-stack">NLP & Audio Processing</div>
+                </article>  
+
+                <article class="glass-card project-card">
+                    <div class="card-header">
+                        <h3>Deep Audio Classifier</h3>
+                        <a href="https://github.com/Dhy4n-117/Deep-Audio-Classifier" class="icon-link" target="_blank" aria-label="View Audio Classifier">
+                            <span>&#8599;</span>
+                        </a>
+                    </div>
+                    <p>TensorFlow, Librosa, CNN</p>
+                    <div class="tech-stack">Deep Learning</div>
+                </article>	
+
+            </div>
+        </section>
+
+        <section id="certs">
+            <h2 class="section-title">Education & Certifications</h2>			
+            <div class="glass-card">
+                <ul class="cert-list">
+                    <li><strong>Bachelor of Engineering</strong> - CSE (AIML)</li>
+                    <li><strong>Foundations of Cybersecurity</strong> - Coursera</li>
+                    <li><strong>AWS Solutions Architecture</strong> - Forage</li>
+                    <li><strong>Software Engineering</strong> - JPMorgan Chase (Forage)</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2 class="section-title" style="border:none; margin-bottom: 0.5rem;">Contact</h2>
+            <p>Email: <a href="mailto:dhyanmurthy3@gmail.com" style="color:var(--accent)">dhyanmurthy3@gmail.com</a></p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dhyan-m/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Dhy4n-117" target="_blank">GitHub</a>
+                <a href="https://leetcode.com/u/Dhyan117/" target="_blank">LeetCode</a>
+            </div>
+            
+            <p style="opacity: 0.5; font-size: 0.8rem;">&copy; 2026 Dhyanamurthy M</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
